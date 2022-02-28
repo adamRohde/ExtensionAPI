@@ -7,8 +7,6 @@ from queue import Queue
 
 
 def main():
-    confidence = 0.2
-
     q_send_to_PLC = Queue()
     q_receive_from_PLC = Queue()
 
@@ -17,15 +15,6 @@ def main():
 
     image_detect = real_time_object_detection.realTimeObjDetect(q_receive_from_PLC, q_send_to_PLC)
     image_detect.start()
-
-    # while (True):
-    #     to_plc = q_send_to_PLC.get()
-    #     print("sending to plc", to_plc)
-    #
-    #     q_receive_from_PLC.put(to_plc)
-    #     from_plc = q_receive_from_PLC.get()
-    #     print(from_plc)
-
 
 if __name__ == '__main__':
     print(__doc__)
